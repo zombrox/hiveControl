@@ -1,4 +1,5 @@
 ## Uncomment cyrrent coin
+#
 lyra2re
 #lyra2rev2
 #Cryptonit
