@@ -1,0 +1,3 @@
+lyra2re.eu.nicehash.com:3342
+#lyra2rev2.eu.nicehash.com:3347
+#cryptonight.eu.nicehash.com:3355
