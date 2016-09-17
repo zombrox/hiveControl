@@ -5,7 +5,7 @@ controllerLocation='/root/hiveControl/'
 currentCoin=`cat "$controllerLocation"proxyController/currentCoin.txt | sed -e '/^#/ d'`
 #echo $currentCoin
 
-screenName=`echo $minertsLocation$currentCoin`
+screenName=`echo $minersLocation$currentCoin`
 #echo $screenName
 
 

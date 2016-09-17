@@ -42,6 +42,5 @@ let "getworkPort = $minersLocation+54000"
 
 esac
 
-
-screen -dmS $screenName $proxyLocation/quark-stratum-mining-miners/mining_miners.py --host $poolAddr --port $poolPort --stratum-port $stratumPort --getwork-port $getworkPort -q
-echo `ps -ef | grep SCREEN | grep $screenName | awk '! /awk/ && /night/ {print $2}'` > '/tmp/'$screenName'Pid'
+screen -dmS $screenName "$proxyLocation"stratum-mining-proxy/mining_proxy.py --host $poolAddr --port $poolPort --stratum-port $stratumPort --getwork-port $getworkPort -q
+echo `ps -ef | grep SCREEN | grep $screenName | awk '! /awk/ && /'$minersLocation'/ {print $2}'` > '/tmp/'$screenName'Pid'
