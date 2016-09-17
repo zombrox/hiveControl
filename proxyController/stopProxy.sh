@@ -1,6 +1,6 @@
 #!/bin/bash
 minersLocation=$1
-controllerLocation='/root/hiveControll/'
+controllerLocation='/root/hiveControl/'
 
 currentCoin=`cat "$controllerLocation"proxyController/currentCoin.txt | sed -e '/^#/ d'`
 #echo $currentCoin
