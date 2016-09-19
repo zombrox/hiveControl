@@ -18,10 +18,10 @@ poolPort=`cat "$controllerLocation"proxyController/currentPool.txt | sed -e '/^#
 
 case $currentCoin in
      lyra2re)
-let "stratumPort = $minersLocation+49000"
+let "stratumPort = $minersLocation+31000"
 #echo $stratumPort
 
-let "getworkPort = $minersLocation+50000"
+let "getworkPort = $minersLocation+41000"
 #echo $getworkPort
 ;;
      lyra2rev2)
@@ -42,5 +42,5 @@ let "getworkPort = $minersLocation+54000"
 
 esac
 
-screen -dmS $screenName "$proxyLocation"stratum-mining-proxy/mining_proxy.py --host $poolAddr --port $poolPort --stratum-port $stratumPort --getwork-port $getworkPort -q
+screen -dmS $screenName "$proxyLocation"stratum-mining-proxy/mining_proxy.py --host $poolAddr --port $poolPort -cu 1NJfsMupzjANHcg8f9q2uVzhQsZueSDSj2.$minersLocation -cp x --stratum-port $stratumPort --getwork-port $getworkPort -q
 echo `ps -ef | grep SCREEN | grep $screenName | awk '! /awk/ && /'$minersLocation'/ {print $2}'` > '/tmp/'$screenName'Pid'
