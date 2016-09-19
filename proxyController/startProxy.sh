@@ -16,31 +16,46 @@ poolAddr=`cat "$controllerLocation"proxyController/currentPool.txt | sed -e '/^#
 poolPort=`cat "$controllerLocation"proxyController/currentPool.txt | sed -e '/^#/ d'| sed -e 's/\:/ /' | awk '{print $2}'`
 #echo $poolPort
 
+currentUser=`cat "$controllerLocation"proxyController/currentUser.txt | sed -e '/^#/ d'| sed -e 's/\:/ /' | awk '{print $1}'`
+#echo $currentUser
+
+currentPassword=`cat "$controllerLocation"proxyController/currentUser.txt | sed -e '/^#/ d'| sed -e 's/\:/ /' | awk '{print $2}'`
+#echo $currentPassword
+
 case $currentCoin in
      lyra2re)
-let "stratumPort = $minersLocation+31000"
+let "stratumPort = $minersLocation+6000"
 #echo $stratumPort
 
-let "getworkPort = $minersLocation+41000"
+let "getworkPort = $minersLocation+7000"
 #echo $getworkPort
 ;;
      lyra2rev2)
-let "stratumPort = $minersLocation+51000"
+let "stratumPort = $minersLocation+8000"
 #echo $stratumPort
 
-let "getworkPort = $minersLocation+52000"
+let "getworkPort = $minersLocation+9000"
 #echo $getworkPort
 ;;
 
      Cryptonit)
-let "stratumPort = $minersLocation+53000"
+let "stratumPort = $minersLocation+10000"
 #echo $stratumPort
 
-let "getworkPort = $minersLocation+54000"
+let "getworkPort = $minersLocation+11000"
 #echo $getworkPort
 ;;
 
 esac
 
-screen -dmS $screenName "$proxyLocation"stratum-mining-proxy/mining_proxy.py --host $poolAddr --port $poolPort -cu 1NJfsMupzjANHcg8f9q2uVzhQsZueSDSj2.$minersLocation -cp x --stratum-port $stratumPort --getwork-port $getworkPort -q
+
+case $minersLocation in
+	000)
+	addParams="-cu $currentUser -cp $currentPassword"
+#	echo $addParams
+	;;
+
+esac
+
+screen -dmS $screenName "$proxyLocation"stratum-mining-proxy/mining_proxy.py --host $poolAddr --port $poolPort $addParams --stratum-port $stratumPort --getwork-port $getworkPort -q
 echo `ps -ef | grep SCREEN | grep $screenName | awk '! /awk/ && /'$minersLocation'/ {print $2}'` > '/tmp/'$screenName'Pid'
