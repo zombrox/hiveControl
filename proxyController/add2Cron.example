@@ -1,2 +1,2 @@
-15 20 * * 1-5 /root/hiveControll/proxyController/startProxy.sh 389
-00 07 * * 1-5 /root/hiveControll/proxyController/stopProxy.sh 389
+15 20 * * 1-5 /root/hiveControl/proxyController/startProxy.sh 389
+00 07 * * 1-5 /root/hiveControl/proxyController/stopProxy.sh 389
