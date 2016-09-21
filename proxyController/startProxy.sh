@@ -55,6 +55,11 @@ case $minersLocation in
 #	echo $addParams
 	;;
 
+	198)
+	addParams="-cu $currentUser -cp $currentPassword"
+#	echo $addParams
+	;;
+
 esac
 
 screen -dmS $screenName "$proxyLocation"stratum-mining-proxy/mining_proxy.py --host $poolAddr --port $poolPort $addParams --stratum-port $stratumPort --getwork-port $getworkPort -q
