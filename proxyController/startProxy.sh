@@ -48,19 +48,20 @@ let "getworkPort = $minersLocation+11000"
 
 esac
 
+addParams="-cu $currentUser$minersLocation -cp $currentPassword"
 
-case $minersLocation in
-	000)
-	addParams="-cu $currentUser -cp $currentPassword"
+#case $minersLocation in
+#	000)
+#	addParams="-cu $currentUser$minersLocation -cp $currentPassword"
 #	echo $addParams
-	;;
-
-	198)
-	addParams="-cu $currentUser -cp $currentPassword"
+#	;;
+#
+#	198)
+#	addParams="-cu $currentUser -cp $currentPassword"
 #	echo $addParams
-	;;
-
-esac
+#	;;
+#
+#esac
 
 screen -dmS $screenName "$proxyLocation"stratum-mining-proxy/mining_proxy.py --host $poolAddr --port $poolPort $addParams --stratum-port $stratumPort --getwork-port $getworkPort -q
 echo `ps -ef | grep SCREEN | grep $screenName | awk '! /awk/ && /'$minersLocation'/ {print $2}'` > '/tmp/'$screenName'Pid'

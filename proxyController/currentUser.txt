@@ -1,4 +1,4 @@
 # Uncomment pool you need
-1NJfsMupzjANHcg8f9q2uVzhQsZueSDSj2.energyDay:x
-#1NJfsMupzjANHcg8f9q2uVzhQsZueSDSj2.morflotDay:x
-#1NJfsMupzjANHcg8f9q2uVzhQsZueSDSj2.officeDay:x
+1NJfsMupzjANHcg8f9q2uVzhQsZueSDSj2.en:x
+#1NJfsMupzjANHcg8f9q2uVzhQsZueSDSj2.mf:x
+#1NJfsMupzjANHcg8f9q2uVzhQsZueSDSj2.of:x
